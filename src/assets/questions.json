@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "questionText": "Are u happy?",
+      "options": [{
+        "text": "yes",
+        "correct": true
+      },
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No"
+        },
+        {
+          "text": ""
+        }
+      ],
+      "explanation": "Sas is Happy"
+    },
+    {
+      "questionText": "Are u sad?",
+      "options": [{
+        "text": "Yes"
+      },
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No"
+        },
+        {
+          "text": "Yes",
+          "correct": true
+        }
+      ],
+      "explanation": "Happy is Sad"
+    }
+  ]
+}
