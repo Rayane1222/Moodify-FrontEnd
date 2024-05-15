@@ -8,6 +8,9 @@ import { QuestionComponent } from './question/question.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangeBgDirective } from './change-bg.directive';
+import {FormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ChangeBgDirective } from './change-bg.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    LoginComponent,
+    RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

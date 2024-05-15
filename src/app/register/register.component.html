@@ -1,0 +1,21 @@
+<br><br><br><br>
+<div class="container nt-4 h-100 d-flex align-items-center justify-content-center">
+  <form>
+    <div class="form-group">
+      <label >Name</label>
+     <input type="email" class="form-control" [(ngModel)]="username" [ngModelOptions]="{standalone:true}" id="name" placeholder="Enter Name">
+    </div>
+
+    <div class="form-group">
+      <label >Email</label>
+      <input type="email"  [(ngModel)]="email" [ngModelOptions]="{standalone:true}" class="form-control" id="address" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label >Password</label>
+      <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Enter Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="save()">Register</button>
+  </form>
+</div>
