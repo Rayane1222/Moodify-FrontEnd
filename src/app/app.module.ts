@@ -11,6 +11,7 @@ import { ChangeBgDirective } from './change-bg.directive';
 import {FormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {RegisterComponent} from "./register/register.component";
     FormsModule,
     HttpClientModule,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

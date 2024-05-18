@@ -33,7 +33,7 @@ export class RegisterComponent {
       "email" :this.email,
       "password" :this.password
     };
-    this.http.post("http://localhost:8080/api/users/save",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
+    this.http.post("http://localhost:8080/api/user/save",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
       {
         console.log(resultData);
         alert("User Registered Successfully");
