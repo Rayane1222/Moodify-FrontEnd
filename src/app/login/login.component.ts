@@ -39,6 +39,7 @@ export class LoginComponent {
 
    email: string ="";
    password: string ="";
+  isLogged: boolean =true;
 
   constructor(private router: Router,private http:HttpClient) {
 
@@ -60,6 +61,7 @@ export class LoginComponent {
        if (resultData.message == "Email not exists")
        {
          alert("Email not exits");
+         this.isLogged=false;
        }else if(resultData.message == "Login Success")
        {
          this.router.navigateByUrl("/welcome")
@@ -67,6 +69,7 @@ export class LoginComponent {
        else
        {
          alert("Incorrect Email and Password not match");
+         this.isLogged=false;
        }
        }
      )

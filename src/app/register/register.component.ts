@@ -16,7 +16,7 @@ export class RegisterComponent {
   isResultLoaded = false;
   isUpdateFormActive = false;
 
-  username: string ="";
+  Name: string ="";
   email: string ="";
   password: string ="";
 
@@ -29,13 +29,14 @@ export class RegisterComponent {
   {
 
     let bodyData = {
-      "username" :this.username,
+      "Name" :this.Name,
       "email" :this.email,
       "password" :this.password
     };
     this.http.post("http://localhost:8080/api/user/save",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
       {
         console.log(resultData);
+        console.log(bodyData);
         alert("User Registered Successfully");
       });
   }

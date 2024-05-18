@@ -1,5 +1,7 @@
-<div class ="alert alert-danger " >
-  <strong>User authentification failed</strong>
+<div *ngIf="!isLogged">
+  <div  class="alert alert-danger " >
+    <strong>User authentification failed</strong>
+  </div>
 </div>
 <br><br><br><br>
 
