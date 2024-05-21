@@ -7,13 +7,13 @@ import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  @ViewChild('name') nameKey!: ElementRef;
+  //@ViewChild('name') nameKey!: ElementRef;
   constructor() { }
 
   ngOnInit(): void {
   }
   startQuiz(){
-    localStorage.setItem("name",this.nameKey.nativeElement.value);
+    //localStorage.setItem("name",this.nameKey.nativeElement.value);
   }
 
 }

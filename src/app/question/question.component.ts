@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
 import { QuestionService } from '../service/question.service';
+import {AuthService} from "../service/auth/auth.service";
 
 @Component({
   selector: 'app-question',
@@ -13,16 +14,16 @@ export class QuestionComponent implements OnInit {
   public questionList: any = [];
   public currentQuestion: number = 0;
   public points: number = 0;
-  counter = 60;
+  counter = 20;
   correctAnswer: number = 0;
   inCorrectAnswer: number = 0;
   interval$: any;
   progress: string = "0";
   isQuizCompleted : boolean = false;
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService , authService: AuthService) { }
 
   ngOnInit(): void {
-    this.name = localStorage.getItem("name")!;
+    this.name = localStorage.getItem("user")!;
     this.getAllQuestions();
     this.startCounter();
   }
@@ -30,6 +31,7 @@ export class QuestionComponent implements OnInit {
     this.questionService.getQuestionJson()
       .subscribe(res => {
         this.questionList = res.questions;
+        console.log(this.questionList)
       })
   }
   nextQuestion() {

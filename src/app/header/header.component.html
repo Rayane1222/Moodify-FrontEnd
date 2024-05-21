@@ -18,15 +18,25 @@
       <a href="#" class="nav-item nav-link">Contact</a>
     </div>
 
-    <div class="navbar-nav ml-auto action-buttons">
-      <div class="nav-item dropdown">
-        <a routerLink="header/login" class="nav-link mr-4">Login</a>
+      <div class="navbar-nav ml-auto action-buttons">
+        <div *ngIf="this.authService.getToken() == null; else elseBlock">
+          <div class="nav-item ">
+            <a routerLink="header/login" class="nav-link mr-4">Login</a>
+          </div>
+
+          <div class="nav-item">
+            <a routerLink="header/register" class="btn btn-primary  sign-up-btn">Sign up</a>
+          </div>
         </div>
+        <ng-template #elseBlock>
+          <div class="nav-item">
+            <a routerLink="/welcome" (click)="logout()" class=" btn-primary  sign-up-btn">Logout</a>
+          </div>
+        </ng-template>
       </div>
-      <div class="nav-item">
-        <a routerLink="header/register" class="btn btn-primary  sign-up-btn">Sign up</a>
+
+
       </div>
-    </div>
 
 </nav>
 </body>

@@ -1,77 +1,49 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 
 import {NgIf} from "@angular/common";
+import {MatCardContent, MatCardTitle} from "@angular/material/card";
+import {AuthService} from "../service/auth/auth.service";
+import {UserModel} from "../models/user.model";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    MatCardTitle,
+    MatCardContent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  /*
-   error : number = 0;
-   user :UserModel = new UserModel();
 
-   constructor(private authService : AuthService, private router : Router) {
-   }
-
-   onLoggedin(){
-     console.log(this.user);
-     let isValidUser : boolean = this.authService.SignIn(this.user);
-     if(isValidUser)
-     {
-       this.router.navigate(['/welcome'])
-     }else
-       alert('User authentification failed')
-       this.error = 1;
-
-   }
- */
+  user = new UserModel();
+  error: number=0;
 
 
-   email: string ="";
-   password: string ="";
-  isLogged: boolean =true;
 
-  constructor(private router: Router,private http:HttpClient) {
+  constructor(private router: Router,private http:HttpClient,private authService: AuthService) {
 
   }
 
-
-
-  Login(){
-   console.log(this.email);
-   console.log(this.password);
-
-   let bodyData = {
-     email: this.email,
-     password: this.password,
-   };
-     this.http.post("http://localhost:8080/api/user/signin",bodyData).subscribe( (resultData: any)=> {
-       console.log(resultData);
-
-       if (resultData.message == "Email not exists")
-       {
-         alert("Email not exits");
-         this.isLogged=false;
-       }else if(resultData.message == "Login Success")
-       {
-         this.router.navigateByUrl("/welcome")
-       }
-       else
-       {
-         alert("Incorrect Email and Password not match");
-         this.isLogged=false;
-       }
-       }
-     )
+  onLoggedin(): void {
+    this.authService.login(this.user).subscribe ( {
+      next: (data) => {
+        let jwtToken: string = data.headers.get("Authorization")!;
+        this.authService.saveToken (jwtToken);
+        this.router.navigate ( ['/welcome']);
+      },
+      error: (error: any): void => {
+        this.error = 1;
+      }
+    })
   }
+
+
+  protected readonly UserModel = UserModel;
 }
