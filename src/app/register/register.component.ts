@@ -43,7 +43,7 @@ export class RegisterComponent {
     private router: Router) {
   }
 
-/*
+
   onSubmit(): void {
 
     let bodyData = {
@@ -56,16 +56,16 @@ export class RegisterComponent {
       (response) => {
         alert("User Registered Successfully");
         this.router.navigateByUrl('header/login')
-        this.isregistred = false;
+        this.isregistred = true;
       },
       (error) => {
         alert("Sign up failed .Please Try again.");
-        this.isregistred = true;
+        this.isregistred = false;
 
       }
     )
   }
-*/
+
 
 
 }

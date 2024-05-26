@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
 import {UserModel} from "../../models/user.model";
+import {Observable} from "rxjs";
 
 
-export const BASIC_URL = 'http://localhost:8080/';
+export const BASIC_URL = 'http://localhost:8080/api/';
 
 @Injectable({
   providedIn: 'root'
@@ -70,5 +71,8 @@ constructor(private router: Router, private httpClient: HttpClient) {}
     return this.helper.isTokenExpired(this.token);
   }
 
+  register(signupRequest:any): Observable<any> {
+  return this.httpClient.post(BASIC_URL+"save", signupRequest);
+  }
 
 }
