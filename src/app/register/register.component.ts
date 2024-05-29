@@ -32,10 +32,10 @@ import {AuthService} from "../service/auth/auth.service";
 })
 export class RegisterComponent {
 
-  Name: string = "";
-  email: string = "";
+  name: string = "";
   password: string = "";
   isregistred : boolean = true;
+  confirm_password :string ="";
 
 
   constructor(
@@ -43,12 +43,19 @@ export class RegisterComponent {
     private router: Router) {
   }
 
+  conf():void{
+    if(this.password == this.confirm_password){
+      this.onSubmit();
+    }else{
+      alert("Not the same password");
+      this.isregistred = false;
+    }
+  }
 
   onSubmit(): void {
 
     let bodyData = {
-      "Name": this.Name,
-      "email": this.email,
+      "name": this.name,
       "password": this.password
     };
 

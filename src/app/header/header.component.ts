@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
+  public name: string = "";
 
   constructor(public authService : AuthService, public router : Router) {
   }
@@ -22,6 +23,9 @@ export class HeaderComponent implements OnInit {
     this.authService.loadToken();
     if (this.authService.getToken() == null || this.authService.isTokenExpired())
     this.router.navigate (  ['header/login']);
+    this.name = localStorage.getItem("user")!;
+    console.log(this.name);
   }
 
+  protected readonly localStorage = localStorage;
 }

@@ -1,0 +1,52 @@
+<br>
+<div id="button_add">
+  <button type="button" routerLink="/add" class="btn btn-outline-secondary">Add Question</button>
+</div>
+<br>
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h5>Questions List</h5>
+      <div class="form-group">
+        <input matInput placeholder="Search by ID" [(ngModel)]="searchId" (input)="applyFilter()" class="form-control">
+      </div>
+      <br>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Question Column -->
+        <ng-container matColumnDef="question">
+          <th mat-header-cell *matHeaderCellDef> Question </th>
+          <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+        </ng-container>
+
+        <!-- Edit Column -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element">
+            <button routerLink="/edit/{{element.id}}" class="btn btn-secondary">Edit</button>
+          </td>
+        </ng-container>
+
+        <!-- Delete Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)="deleteQuestion(element.id)" class="btn btn-primary">Delete</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[2, 4]" showFirstLastButtons aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

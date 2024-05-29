@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
 import { QuestionService } from '../service/question.service';
 import {AuthService} from "../service/auth/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -14,13 +15,13 @@ export class QuestionComponent implements OnInit {
   public questionList: any = [];
   public currentQuestion: number = 0;
   public points: number = 0;
-  counter = 20;
+  counter : number = 20;
   correctAnswer: number = 0;
   inCorrectAnswer: number = 0;
   interval$: any;
   progress: string = "0";
   isQuizCompleted : boolean = false;
-  constructor(private questionService: QuestionService , authService: AuthService) { }
+  constructor(private questionService: QuestionService ) { }
 
   ngOnInit(): void {
     this.name = localStorage.getItem("user")!;
@@ -73,7 +74,7 @@ export class QuestionComponent implements OnInit {
         this.counter--;
         if (this.counter === 0) {
           this.currentQuestion++;
-          this.counter = 60;
+          this.counter = 20;
           this.points -= 10;
         }
       });
@@ -87,14 +88,14 @@ export class QuestionComponent implements OnInit {
   }
   resetCounter() {
     this.stopCounter();
-    this.counter = 60;
+    this.counter = 20;
     this.startCounter();
   }
   resetQuiz() {
     this.resetCounter();
     this.getAllQuestions();
     this.points = 0;
-    this.counter = 60;
+    this.counter = 20;
     this.currentQuestion = 0;
     this.progress = "0";
 
@@ -104,4 +105,6 @@ export class QuestionComponent implements OnInit {
     return this.progress;
 
   }
+
+
 }

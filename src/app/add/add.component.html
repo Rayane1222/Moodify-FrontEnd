@@ -1,0 +1,9 @@
+<div class="container mt-4 h-100 d-flex align-items-center justify-content-center">
+  <form (ngSubmit)="addQuestion()">
+    <div class="form-group">
+      <label>Question</label>
+      <textarea [(ngModel)]="question.question" class="form-control" name="question" placeholder="Enter question" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>

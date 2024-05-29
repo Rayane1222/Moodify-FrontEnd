@@ -1,3 +1,4 @@
 export class questionModel{
-  questions_list? :string;
+  id:any
+  question:any
 }

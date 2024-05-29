@@ -2,21 +2,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuestionComponent } from './question/question.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {RegisterComponent} from "./register/register.component";
-import {LoginComponent} from "./login/login.component";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { AddComponent } from './add/add.component';
+import {EditQuestionComponent} from "./edit-question/edit-question.component";
 
 const routes: Routes = [
-  {path:'', redirectTo:'welcome',pathMatch:"full"},
-  {path:"welcome", component:WelcomeComponent},
-  {path:"question", component:QuestionComponent},
-  {path:"header", component:RegisterComponent, children:[
-      {path:"register", component:RegisterComponent}
-
-    ]},
-  {path:"header", component:LoginComponent, children:[
-      {path:"login", component:LoginComponent}
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'question', component: QuestionComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'add', component: AddComponent },
+  { path: 'edit/:id', component: EditQuestionComponent },
+  { path: 'header', children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent }
     ]}
-
 ];
 
 @NgModule({

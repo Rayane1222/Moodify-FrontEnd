@@ -18,7 +18,7 @@ export class AuthService {
 
   public loggedUser! : string; //stocke le user connecté
   public isloggedIn : Boolean = false; //si user est connecté ou non
-  public roles! : string[]; //stocke les rôles du user connecté
+  public roles : string; //stocke les rôles du user connecté
 
 constructor(private router: Router, private httpClient: HttpClient) {}
 
@@ -39,7 +39,7 @@ constructor(private router: Router, private httpClient: HttpClient) {}
 
   decodedJWT(): void {
     if (this.token!= undefined) {
-      const decodedToken = this.helper.decodeToken (this.token);
+      const decodedToken = this.helper.decodeToken(this.token);
       this.roles =decodedToken.roles;
       this.loggedUser = decodedToken.sub;
       localStorage.setItem('user', this.loggedUser);

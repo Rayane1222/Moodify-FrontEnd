@@ -17,27 +17,23 @@
       <a href="#" class="nav-item nav-link">About</a>
       <a href="#" class="nav-item nav-link">Contact</a>
     </div>
-
-      <div class="navbar-nav ml-auto action-buttons">
-        <div *ngIf="this.authService.getToken() == null; else elseBlock">
-          <div class="nav-item ">
-            <a routerLink="header/login" class="nav-link mr-4">Login</a>
-          </div>
-
-          <div class="nav-item">
-            <a routerLink="header/register" class="btn btn-primary  sign-up-btn">Sign up</a>
+    <div class="navbar-nav ml-auto action-buttons">
+      <div *ngIf="this.authService.getToken() == null; else elseBlock">
+        <div class="nav-item d-flex">
+          <a routerLink="header/login" class="nav-link mr-2">Login</a>
+          <a routerLink="header/register" class="btn btn-primary sign-up-btn">Sign up</a>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div class="nav-item d-flex">
+          <a routerLink="/welcome" (click)="logout()" class="btn btn-primary sign-up-btn mr-2">Logout</a>
+          <div *ngIf="localStorage.user == 'admin'">
+            <a routerLink="/admin" class="btn btn-primary sign-up-btn">Admin</a>
           </div>
         </div>
-        <ng-template #elseBlock>
-          <div class="nav-item">
-            <a routerLink="/welcome" (click)="logout()" class=" btn-primary  sign-up-btn">Logout</a>
-          </div>
-        </ng-template>
-      </div>
-
-
-      </div>
-
+      </ng-template>
+    </div>
+  </div>
 </nav>
 </body>
 </html>
