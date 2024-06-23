@@ -2,111 +2,66 @@
   "questions": [
     {
       "questionText": "Did you have a good day today?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "sad" }
+      ]
     },
     {
       "questionText": "Have you experienced anything exciting or uplifting today?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "neutral" }
+      ]
     },
     {
       "questionText": "Is there something bothering you right now?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": false, "mood": "sad" },
+        { "text": "No", "correct": true, "mood": "neutral" }
+      ]
     },
     {
       "questionText": "Do you feel energetic at the moment?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "sad" }
+      ]
     },
     {
       "questionText": "Did any interactions today make you feel upset or frustrated?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": false, "mood": "angry" },
+        { "text": "No", "correct": true, "mood": "neutral" }
+      ]
     },
     {
       "questionText": "Do you feel content and at peace right now?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "sad" }
+      ]
     },
     {
       "questionText": "Has anything happened today that made you feel down or disappointed?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": false, "mood": "sad" },
+        { "text": "No", "correct": true, "mood": "neutral" }
+      ]
     },
     {
       "questionText": "Are you feeling relaxed and at ease right now?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "sad" }
+      ]
     },
     {
       "questionText": "Did something happen today that made you smile or laugh?",
-      "options": [{
-        "text": "yes",
-        "correct": true
-      },
-        {
-          "text": "No"
-        }
-      ],
-      "explanation": ""
+      "options": [
+        { "text": "Yes", "correct": true, "mood": "happy" },
+        { "text": "No", "correct": false, "mood": "neutral" }
+      ]
     }
   ]
 }

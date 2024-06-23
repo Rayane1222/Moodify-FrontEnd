@@ -13,15 +13,27 @@
   </button>
   <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
     <div class="navbar-nav">
-      <a href="#" class="nav-item nav-link">Home</a>
-      <a href="#" class="nav-item nav-link">About</a>
-      <a href="#" class="nav-item nav-link">Contact</a>
+
+      <a [routerLink]="this.authService.getToken() ? '/welcome' : null"
+         class="nav-item nav-link"
+         [class.disabled]="this.authService.getToken() == null">
+        Home
+      </a>
+
+      <a [routerLink]="this.authService.getToken() ? '/history' : null"
+         class="nav-item nav-link"
+         [class.disabled]="this.authService.getToken() == null">
+        Mood History
+      </a>
+
+      <a routerLink="/about" class="nav-item nav-link">About Us</a>
     </div>
     <div class="navbar-nav ml-auto action-buttons">
       <div *ngIf="this.authService.getToken() == null; else elseBlock">
         <div class="nav-item d-flex">
           <a routerLink="header/login" class="nav-link mr-2">Login</a>
           <a routerLink="header/register" class="btn btn-primary sign-up-btn">Sign up</a>
+
         </div>
       </div>
       <ng-template #elseBlock>

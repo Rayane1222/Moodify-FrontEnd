@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h4>Your Mood History</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Date</th>
+          <th>Mood</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let mood of moodHistory">
+          <td>{{ mood.date | date:'medium' }}</td>
+          <td>{{ mood.mood }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
